@@ -7,3 +7,7 @@ con <- odbcConnect("TV_Price_Tracker_db")
 sqlTables(con, tableType = "TABLE", tableName = "Pricing_Output")$TABLE_NAME
 sqlColumns(con, "Pricing_Output")$COLUMN_NAME
 x <- sqlFetch(con, "Pricing_Output")
+y <- sqlQuery(con, "SELECT * FROM Pricing_Output WHERE `Price ($)` > 300")
+
+
+odbcCloseAll()
